@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Redirect halaman utama ke dashboard barang
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('barang.index');
 });
+
+// Routes Barang
+Route::resource('barang', BarangController::class);
+
+// Routes Kategori (tanpa show)
+Route::resource('kategori', KategoriController::class)->except(['show']);
+
+// Route Bantuan
+Route::get('/bantuan', function () {
+    return view('bantuan');
+})->name('bantuan');
