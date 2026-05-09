@@ -33,7 +33,7 @@ class BarangController extends Controller
         $totalBarang    = Barang::count();
         $totalKategori  = Kategori::count();
         $stokMenipis    = Barang::where('jumlah_stok', '>', 0)
-                                ->whereColumn('jumlah_stok', '<', 'stok_minimum')
+                                ->where('jumlah_stok', '<', 20)
                                 ->count();
         $stokHabis      = Barang::where('jumlah_stok', 0)->count();
 

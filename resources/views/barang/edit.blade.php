@@ -103,7 +103,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Stok minimum</label>
+                    <label class="form-label fw-semibold">Stok minimum <span class="text-danger">*</span></label>
                     <input type="number" name="stok_minimum"
                         class="form-control @error('stok_minimum') is-invalid @enderror"
                         value="{{ old('stok_minimum', $barang->stok_minimum) }}"
@@ -117,7 +117,7 @@
             {{-- Harga Jual & Harga Beli --}}
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Harga jual (Rp)</label>
+                    <label class="form-label fw-semibold">Harga jual (Rp) <span class="text-danger">*</span></label>
                     <input type="number" name="harga_jual"
                         class="form-control @error('harga_jual') is-invalid @enderror"
                         value="{{ old('harga_jual', $barang->harga_jual) }}"
@@ -127,7 +127,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Harga beli (Rp)</label>
+                    <label class="form-label fw-semibold">Harga beli (Rp) <span class="text-danger">*</span></label>
                     <input type="number" name="harga_beli"
                         class="form-control @error('harga_beli') is-invalid @enderror"
                         value="{{ old('harga_beli', $barang->harga_beli) }}"
@@ -141,7 +141,7 @@
             {{-- Berat & Lokasi --}}
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Berat / ukuran</label>
+                    <label class="form-label fw-semibold">Berat / ukuran <span class="text-danger">*</span></label>
                     <input type="text" name="berat_ukuran"
                         class="form-control @error('berat_ukuran') is-invalid @enderror"
                         value="{{ old('berat_ukuran', $barang->berat_ukuran) }}"
@@ -151,7 +151,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Lokasi simpan</label>
+                    <label class="form-label fw-semibold">Lokasi simpan <span class="text-danger">*</span></label>
                     <input type="text" name="lokasi_simpan"
                         class="form-control @error('lokasi_simpan') is-invalid @enderror"
                         value="{{ old('lokasi_simpan', $barang->lokasi_simpan) }}"
@@ -164,7 +164,7 @@
 
             {{-- Deskripsi --}}
             <div class="mb-4">
-                <label class="form-label fw-semibold">Deskripsi</label>
+                <label class="form-label fw-semibold">Deskripsi <span class="text-danger">*</span></label>
                 <textarea name="deskripsi" rows="3"
                     class="form-control @error('deskripsi') is-invalid @enderror"
                     placeholder="Deskripsi barang...">{{ old('deskripsi', $barang->deskripsi) }}</textarea>

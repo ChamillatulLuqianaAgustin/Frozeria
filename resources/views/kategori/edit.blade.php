@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-semibold text-secondary small text-uppercase">
-                            Deskripsi <span class="text-muted fw-normal">(opsional)</span>
+                            Deskripsi <span class="text-muted fw-normal">*</span>
                         </label>
                         <textarea name="deskripsi" rows="4"
                             class="form-control @error('deskripsi') is-invalid @enderror"
