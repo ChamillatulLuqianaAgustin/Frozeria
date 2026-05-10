@@ -3,26 +3,27 @@
 @section('content')
 
 <div class="card">
-    <div class="card-body">
-
-        {{-- Header --}}
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="d-flex align-items-center gap-2">
-                <a href="{{ route('barang.index') }}" class="btn btn-sm btn-outline-secondary">
-                    <i class="bi bi-arrow-left"></i>
-                </a>
-                <h5 class="mb-0 fw-bold">Detail Barang</h5>
-            </div>
-            <div class="d-flex gap-2">
-                <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-warning text-white">
-                    <i class="bi bi-pencil"></i> Edit Barang
-                </a>
-                <button class="btn btn-danger"
-                    onclick="konfirmasiHapus({{ $barang->id }}, '{{ $barang->nama_barang }}')">
-                    <i class="bi bi-trash"></i> Hapus
-                </button>
-            </div>
+    <div class="card-header d-flex justify-content-between align-items-center py-3"
+        style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px 12px 0 0;">
+        <div class="d-flex align-items-center gap-2">
+            <a href="{{ route('barang.index') }}" class="btn btn-sm btn-outline-light">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <h5 class="mb-0 fw-bold text-white ms-1">
+                <i class="bi bi-info-circle me-2"></i>Detail Barang
+            </h5>
         </div>
+        <div class="d-flex gap-2">
+            <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-sm btn-warning text-white">
+                <i class="bi bi-pencil me-1"></i> Edit Barang
+            </a>
+            <button class="btn btn-sm btn-danger"
+                onclick="konfirmasiHapus({{ $barang->id }}, '{{ $barang->nama_barang }}')">
+                <i class="bi bi-trash me-1"></i> Hapus
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-4">
 
         {{-- Foto & Nama --}}
         <div class="d-flex align-items-start gap-4 mb-4">

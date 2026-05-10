@@ -81,7 +81,7 @@
                     <select name="satuan"
                         class="form-select @error('satuan') is-invalid @enderror">
                         <option value="">Pilih satuan</option>
-                        @foreach(['pcs', 'pack', 'box', 'kaleng', 'botol', 'sachet', 'lusin'] as $sat)
+                        @foreach(['pcs', 'pack', 'box', 'kaleng', 'botol'] as $sat)
                             <option value="{{ $sat }}" {{ old('satuan') == $sat ? 'selected' : '' }}>
                                 {{ $sat }}
                             </option>

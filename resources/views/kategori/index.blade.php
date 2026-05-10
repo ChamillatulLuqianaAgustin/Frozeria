@@ -40,7 +40,7 @@
         {{-- Tabel --}}
         <div class="card">
             <div class="card-body p-0">
-                <table class="table mb-0" id="myTable">
+                <table class="table mb-0">
                     <thead>
                         <tr>
                             <th>Nama kategori</th>
