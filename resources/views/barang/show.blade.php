@@ -10,7 +10,7 @@
                 <i class="bi bi-arrow-left"></i>
             </a>
             <h5 class="mb-0 fw-bold text-white ms-1">
-                <i class="bi bi-info-circle me-2"></i>Detail Barang
+                Detail Barang
             </h5>
         </div>
         <div class="d-flex gap-2">
