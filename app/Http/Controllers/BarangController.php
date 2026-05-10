@@ -78,6 +78,12 @@ class BarangController extends Controller
             $data['foto'] = $request->file('foto')->store('fotos', 'public');
         }
 
+        // Gabungkan berat_nilai + berat_satuan jadi berat_ukuran
+        if ($request->berat_nilai && $request->berat_satuan) {
+            $data['berat_ukuran'] = $request->berat_nilai . ' ' . $request->berat_satuan;
+        }
+        unset($data['berat_nilai'], $data['berat_satuan']);
+
         Barang::create($data);
 
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan!');
@@ -128,6 +134,11 @@ class BarangController extends Controller
             }
             $data['foto'] = $request->file('foto')->store('fotos', 'public');
         }
+
+        if ($request->berat_nilai && $request->berat_satuan) {
+            $data['berat_ukuran'] = $request->berat_nilai . ' ' . $request->berat_satuan;
+        }
+        unset($data['berat_nilai'], $data['berat_satuan']);
 
         $barang->update($data);
 

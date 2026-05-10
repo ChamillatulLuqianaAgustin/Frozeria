@@ -78,10 +78,15 @@
                     <label class="form-label fw-semibold text-secondary small text-uppercase">
                         Satuan <span class="text-danger">*</span>
                     </label>
-                    <input type="text" name="satuan"
-                        class="form-control @error('satuan') is-invalid @enderror"
-                        value="{{ old('satuan') }}"
-                        placeholder="Masukkan Satuan (Contoh: pcs, pack, box, kaleng)">
+                    <select name="satuan"
+                        class="form-select @error('satuan') is-invalid @enderror">
+                        <option value="">Pilih satuan</option>
+                        @foreach(['pcs', 'pack', 'box', 'kaleng', 'botol', 'sachet', 'lusin'] as $sat)
+                            <option value="{{ $sat }}" {{ old('satuan') == $sat ? 'selected' : '' }}>
+                                {{ $sat }}
+                            </option>
+                        @endforeach
+                    </select>
                     @error('satuan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -150,12 +155,21 @@
                     <label class="form-label fw-semibold text-secondary small text-uppercase">
                         Berat / ukuran <span class="text-danger">*</span>
                     </label>
-                    <input type="text" name="berat_ukuran"
-                        class="form-control @error('berat_ukuran') is-invalid @enderror"
-                        value="{{ old('berat_ukuran') }}"
-                        placeholder="Masukkan Berat / Ukuran (Contoh: 500 gram)">
+                    <div class="input-group">
+                        <input type="number" name="berat_nilai"
+                            class="form-control @error('berat_ukuran') is-invalid @enderror"
+                            value="{{ old('berat_nilai') }}"
+                            placeholder="Contoh: 500">
+                        <select name="berat_satuan" class="form-select" style="max-width: 100px;">
+                            @foreach(['gram', 'kg', 'ml', 'liter', 'ons'] as $sat)
+                                <option value="{{ $sat }}" {{ old('berat_satuan') == $sat ? 'selected' : '' }}>
+                                    {{ $sat }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                     @error('berat_ukuran')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">

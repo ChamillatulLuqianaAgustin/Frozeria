@@ -22,7 +22,7 @@
                             Nama kategori <span class="text-danger">*</span>
                         </label>
                         <input type="text" name="nama_kategori"
-                            class="form-control form-control-lg @error('nama_kategori') is-invalid @enderror"
+                            class="form-control @error('nama_kategori') is-invalid @enderror"
                             value="{{ old('nama_kategori') }}"
                             placeholder="Contoh: Seafood, Sayuran, Siap Saji...">
                         @error('nama_kategori')
@@ -32,7 +32,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-semibold text-secondary small text-uppercase">
-                            Deskripsi <span class="text-danger">*</span>
+                            Deskripsi <span class="text-muted fw-normal">(opsional)</span>
                         </label>
                         <textarea name="deskripsi" rows="4"
                             class="form-control @error('deskripsi') is-invalid @enderror"

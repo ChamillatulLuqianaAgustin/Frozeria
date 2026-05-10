@@ -79,11 +79,18 @@
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Satuan <span class="text-danger">*</span></label>
-                    <input type="text" name="satuan"
-                        class="form-control @error('satuan') is-invalid @enderror"
-                        value="{{ old('satuan', $barang->satuan) }}"
-                        placeholder="pcs">
+                    <label class="form-label fw-semibold text-secondary small text-uppercase">
+                        Satuan <span class="text-danger">*</span>
+                    </label>
+                    <select name="satuan"
+                        class="form-select @error('satuan') is-invalid @enderror">
+                        <option value="">Pilih satuan</option>
+                        @foreach(['pcs', 'pack', 'box', 'kaleng', 'botol', 'sachet', 'lusin'] as $sat)
+                            <option value="{{ $sat }}" {{ old('satuan', $barang->satuan) == $sat ? 'selected' : '' }}>
+                                {{ $sat }}
+                            </option>
+                        @endforeach
+                    </select>
                     @error('satuan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -141,13 +148,30 @@
             {{-- Berat & Lokasi --}}
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label class="form-label fw-semibold">Berat / ukuran <span class="text-danger">*</span></label>
-                    <input type="text" name="berat_ukuran"
-                        class="form-control @error('berat_ukuran') is-invalid @enderror"
-                        value="{{ old('berat_ukuran', $barang->berat_ukuran) }}"
-                        placeholder="500 gram">
+                    <label class="form-label fw-semibold text-secondary small text-uppercase">
+                        Berat / ukuran <span class="text-danger">*</span>
+                    </label>
+                    @php
+                        $beratParts = explode(' ', $barang->berat_ukuran ?? '');
+                        $beratNilai = $beratParts[0] ?? '';
+                        $beratSatuan = $beratParts[1] ?? 'gram';
+                    @endphp
+                    <div class="input-group">
+                        <input type="number" name="berat_nilai"
+                            class="form-control @error('berat_ukuran') is-invalid @enderror"
+                            value="{{ old('berat_nilai', $beratNilai) }}"
+                            placeholder="Contoh: 500">
+                        <select name="berat_satuan" class="form-select" style="max-width: 100px;">
+                            @foreach(['gram', 'kg', 'ml', 'liter', 'ons'] as $sat)
+                                <option value="{{ $sat }}"
+                                    {{ old('berat_satuan', $beratSatuan) == $sat ? 'selected' : '' }}>
+                                    {{ $sat }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                     @error('berat_ukuran')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
