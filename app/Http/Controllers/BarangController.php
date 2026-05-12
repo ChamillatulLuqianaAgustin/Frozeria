@@ -26,6 +26,7 @@ class BarangController extends Controller
             $query->where('kategori_id', $request->kategori_id);
         }
 
+        // Pagination
         $barangs   = $query->paginate(10)->appends($request->query());
         $kategoris = Kategori::all();
 
@@ -37,6 +38,7 @@ class BarangController extends Controller
                                 ->count();
         $stokHabis      = Barang::where('jumlah_stok', 0)->count();
 
+        // Kirim semua variabel ke view barang/index.blade.php
         return view('barang.index', compact(
             'barangs', 'kategoris',
             'totalBarang', 'totalKategori',
@@ -49,6 +51,7 @@ class BarangController extends Controller
      */
     public function create()
     {
+        // Ambil semua kategori untuk dropdown di form
         $kategoris = Kategori::all();
         return view('barang.create', compact('kategoris'));
     }
@@ -127,6 +130,7 @@ class BarangController extends Controller
 
         $data = $request->except('foto');
 
+        // Jika ada foto baru diupload
         if ($request->hasFile('foto')) {
             // Hapus foto lama kalau ada
             if ($barang->foto) {

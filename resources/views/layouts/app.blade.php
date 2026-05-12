@@ -21,8 +21,8 @@
         .card { border: none; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
         /* Tabel */
-        .table thead th { background-color: #f8fafc; color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #e2e8f0; padding: 12px 16px; }
-        .table tbody td { padding: 12px 16px; vertical-align: middle; border-bottom: 1px solid #f1f5f9; color: #334155; }
+        .table thead th { background-color: #f8fafc; color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #e2e8f0; padding: 12px 16px; } /*Header*/
+        .table tbody td { padding: 12px 16px; vertical-align: middle; border-bottom: 1px solid #f1f5f9; color: #334155; } /*Baris*/
         .table tbody tr:hover { background-color: #f8fafc; }
         .table tbody tr:last-child td { border-bottom: none; }
 

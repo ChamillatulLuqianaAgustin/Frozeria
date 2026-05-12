@@ -4,6 +4,7 @@
 
 {{-- Cards Info --}}
 <div class="row mb-4 g-3">
+    {{-- Card Total Barang --}}
     <div class="col-md-3">
         <div class="card card-stat h-100">
             <div class="card-body d-flex align-items-center gap-3">
@@ -17,6 +18,7 @@
             </div>
         </div>
     </div>
+    {{-- Card Total Kategori --}}
     <div class="col-md-3">
         <div class="card card-stat h-100">
             <div class="card-body d-flex align-items-center gap-3">
@@ -30,6 +32,7 @@
             </div>
         </div>
     </div>
+    {{-- Card Stok Menipis (stok > 0 dan < 20) --}}
     <div class="col-md-3">
         <div class="card card-stat h-100">
             <div class="card-body d-flex align-items-center gap-3">
@@ -43,6 +46,7 @@
             </div>
         </div>
     </div>
+    {{-- Card Stok Habis (stok = 0) --}}
     <div class="col-md-3">
         <div class="card card-stat h-100">
             <div class="card-body d-flex align-items-center gap-3">
@@ -61,7 +65,9 @@
 {{-- Search & Filter --}}
 <div class="card mb-4">
     <div class="card-body">
+        {{-- Form GET agar parameter muncul di URL --}}
         <form method="GET" action="{{ route('barang.index') }}" class="row g-2 align-items-center">
+            {{-- Input pencarian nama barang --}}
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-text bg-white border-end-0">
@@ -72,6 +78,7 @@
                         value="{{ request('search') }}">
                 </div>
             </div>
+            {{-- Dropdown filter kategori --}}
             <div class="col-md-3">
                 <select name="kategori_id" class="form-select">
                     <option value="">Semua kategori</option>
@@ -83,14 +90,17 @@
                     @endforeach
                 </select>
             </div>
+            {{-- Tombol Cari dan Reset --}}
             <div class="col-md-auto">
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-search me-1"></i> Cari
                 </button>
+                {{-- Reset = kembali ke URL tanpa parameter --}}
                 <a href="{{ route('barang.index') }}" class="btn btn-outline-secondary">
                     <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
                 </a>
             </div>
+            {{-- Tombol Tambah Barang di kanan --}}
             <div class="col-md-auto ms-auto">
                 <a href="{{ route('barang.create') }}" class="btn btn-success">
                     <i class="bi bi-plus-lg me-1"></i> Tambah Barang
@@ -115,10 +125,12 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- @forelse = foreach tapi ada @empty jika data kosong --}}
                 @forelse($barangs as $barang)
                 <tr>
                     <td class="fw-semibold">{{ $barang->nama_barang }}</td>
                     <td>
+                        {{-- Cek apakah barang punya kategori --}}
                         @if($barang->kategori)
                             <span class="badge badge-kategori"
                                 style="background:#e0f2fe; color:#0284c7;">
@@ -129,6 +141,7 @@
                         @endif
                     </td>
                     <td>
+                        {{-- Badge warna berbeda sesuai kondisi stok --}}
                         @if($barang->jumlah_stok == 0)
                             <span class="badge badge-kategori" style="background:#fee2e2; color:#dc2626;">
                                 <i class="bi bi-x-circle me-1"></i>{{ $barang->jumlah_stok }}

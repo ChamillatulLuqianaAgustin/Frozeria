@@ -3,9 +3,11 @@
 @section('content')
 
 <div class="card">
+    {{-- Header dengan gradient gelap --}}
     <div class="card-header d-flex justify-content-between align-items-center py-3"
         style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px 12px 0 0;">
         <div class="d-flex align-items-center gap-2">
+            {{-- Tombol kembali ke dashboard --}}
             <a href="{{ route('barang.index') }}" class="btn btn-sm btn-outline-light">
                 <i class="bi bi-arrow-left"></i>
             </a>

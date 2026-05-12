@@ -14,6 +14,7 @@ class KategoriController extends Controller
     {
         $query = Kategori::withCount('barangs');
 
+        // Filter pencarian by nama kategori
         if ($request->search) {
             $query->where('nama_kategori', 'like', '%' . $request->search . '%');
         }

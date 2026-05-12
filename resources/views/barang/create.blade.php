@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="card">
+    {{-- Header form --}}
     <div class="card-header d-flex align-items-center gap-2 py-3"
         style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px 12px 0 0;">
         <a href="{{ route('barang.index') }}" class="btn btn-sm btn-outline-light">
@@ -26,7 +27,7 @@
                         <img id="fotoPreview" src="#" alt="Preview"
                             class="img-fluid rounded d-none" style="max-height: 200px;">
                     </div>
-                    <p class="text-muted small mb-2">Klik untuk memilih foto, atau seret file ke sini</p>
+                    <p class="text-muted small mb-2">Klik untuk memilih foto</p>
                     <p class="text-muted small mb-2">Format: JPG, PNG — Maks. 2 MB</p>
                     <label for="foto" class="btn btn-sm btn-outline-primary">
                         <i class="bi bi-upload"></i> Pilih Foto
